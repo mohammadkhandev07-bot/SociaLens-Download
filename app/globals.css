@@ -4,7 +4,7 @@
 
 :root { color-scheme: dark; }
 html { background: #05010a; scroll-behavior: smooth; }
-body { @apply min-h-screen bg-[#05010a] font-sans text-white antialiased; }
+body { @apply min-h-screen font-sans text-white antialiased; }
 
 @layer components {
   .grad-text {
