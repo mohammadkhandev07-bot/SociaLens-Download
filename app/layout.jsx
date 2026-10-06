@@ -1,6 +1,6 @@
 import { Montserrat } from "next/font/google";
 import "./globals.css";
-import Background from "@/components/Background";
+import VideoBackground from "@/components/VideoBackground";
 import DownloadProvider from "@/components/DownloadProvider";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={font.variable}>
       <body>
-        <Background />
+        <VideoBackground />
         <DownloadProvider>
           <Navbar />
           <main>{children}</main>
