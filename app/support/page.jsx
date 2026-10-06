@@ -2,8 +2,9 @@
 import { useState } from "react";
 import { ImagePlus, Send } from "lucide-react";
 import { sendForm } from "@/lib/form";
+import { CLOUDINARY_CLOUD } from "@/lib/config";
 
-const MAX_MB = 5;
+const MAX_MB = CLOUDINARY_CLOUD ? 10 : 5;
 const MSG = {
   sent: ["text-fuchsia-300", "Request sent. We'll get back to you on your number."],
   "sent-nofile": ["text-amber-300", "Request sent, but the file couldn't be attached. Please describe the problem in detail."],
