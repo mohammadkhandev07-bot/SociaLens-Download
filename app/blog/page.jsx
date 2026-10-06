@@ -40,7 +40,7 @@ export default function Blog() {
       <div className="mt-12 flex flex-wrap gap-3" role="tablist">
         {CATS.map((c) => (
           <button key={c} role="tab" aria-selected={cat === c} onClick={() => setCat(c)}
-            className={`rounded-full border px-5 py-2 text-sm font-semibold transition ${cat === c ? "border-transparent bg-gradient-to-r from-pink-500 to-violet-500 shadow-[0_0_20px_rgba(217,70,239,.6)]" : "border-white/15 bg-white/5 text-white/75 hover:bg-white/10"}`}>{c}</button>
+            className={`rounded-full border px-5 py-2 text-sm font-semibold transition ${cat === c ? "border-fuchsia-300/60 bg-gradient-to-r from-pink-500/40 to-violet-500/40 shadow-[0_0_20px_rgba(217,70,239,.45)] backdrop-blur-md" : "border-white/15 bg-white/5 text-white/75 backdrop-blur-md hover:bg-white/10"}`}>{c}</button>
         ))}
       </div>
 
@@ -48,7 +48,7 @@ export default function Blog() {
         {list.map((p) => (
           <article key={p.title} className="glass flex flex-col !rounded-2xl p-3 transition hover:-translate-y-1">
             <div className="relative"><CardArt bg={p.bg} kinds={p.kinds} img={p.img} />
-              <span className="absolute left-2 top-2 rounded-full bg-gradient-to-r from-pink-500 to-violet-500 px-3 py-0.5 text-xs font-semibold">{p.cat}</span></div>
+              <span className="absolute left-2 top-2 rounded-full border border-white/25 bg-black/40 px-3 py-0.5 text-xs font-semibold backdrop-blur-md">{p.cat}</span></div>
             <h2 className="mt-4 px-1 font-bold leading-snug">{p.title}</h2>
             <p className="mt-2 flex-1 px-1 text-sm text-white/70">{p.text}</p>
             <div className="mt-4 flex items-center justify-between px-1 text-xs text-white/55">
