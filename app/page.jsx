@@ -1,9 +1,20 @@
 "use client";
 import { motion } from "framer-motion";
+import { SITE_URL, SITE_DESC } from "@/lib/site";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "WebSite", name: "SociaLens Download", alternateName: ["SociaLens"], url: `${SITE_URL}/` },
+    { "@type": "Organization", name: "SociaLens", url: `${SITE_URL}/`, logo: `${SITE_URL}/logo.png` },
+    { "@type": "SoftwareApplication", name: "SociaLens", applicationCategory: "SocialNetworkingApplication", operatingSystem: "Windows, macOS, Linux, Android, iOS", description: SITE_DESC, url: `${SITE_URL}/`, image: `${SITE_URL}/logo.png`, offers: { "@type": "Offer", price: "0", priceCurrency: "USD" } },
+  ],
+};
 
 export default function Home() {
   return (
     <section className="relative flex min-h-[calc(100vh-5.5rem)] items-center justify-center px-6 text-center">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="max-w-4xl">
         <motion.h1 initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9 }}
           className="grad-text text-5xl font-extrabold leading-[1.05] tracking-tight drop-shadow-[0_0_30px_rgba(217,70,239,.45)] sm:text-6xl lg:text-8xl">
