@@ -5,48 +5,44 @@ import DownloadProvider from "@/components/DownloadProvider";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SWRegister from "@/components/SWRegister";
-import { SITE_URL, SITE_NAME, SITE_DESC } from "@/lib/site";
+import { SITE_URL, SITE_DESC } from "@/lib/site";
 
 const font = Montserrat({ subsets: ["latin"], variable: "--font-sans" });
 
-const TITLE = "SociaLens – Download the 3D Social App for Windows, Mac, Linux, Android & iPhone";
+const SITE_FULL_NAME = "SociaLens Download";
+const TITLE = "SociaLens Download – 3D Social App for Windows, Mac, Linux, Android & iPhone";
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: { default: TITLE, template: "%s | SociaLens" },
   description: SITE_DESC,
   keywords: ["SociaLens", "SociaLens app", "SociaLens download", "3D social app", "social media app", "chat and video calls"],
-  applicationName: SITE_NAME,
+  applicationName: SITE_FULL_NAME,
   alternates: { canonical: "/" },
   robots: { index: true, follow: true },
   openGraph: {
-    type: "website", siteName: SITE_NAME, title: TITLE, description: SITE_DESC, url: "/",
+    type: "website", siteName: SITE_FULL_NAME, title: TITLE, description: SITE_DESC, url: "/",
     images: [{ url: "/blog/hero.jpg", width: 1200, height: 750, alt: "SociaLens app" }],
   },
   twitter: { card: "summary_large_image", title: TITLE, description: SITE_DESC, images: ["/blog/hero.jpg"] },
   manifest: "/manifest.json",
-  icons: { icon: "/icons/icon-192.png", apple: "/icons/icon-192.png" },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+      { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/icons/icon-192.png",
+  },
   appleWebApp: { capable: true, title: "SociaLens", statusBarStyle: "black-translucent" },
 };
 export const viewport = { themeColor: "#05010a", width: "device-width", initialScale: 1 };
-
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  name: SITE_NAME,
-  applicationCategory: "SocialNetworkingApplication",
-  operatingSystem: "Windows, macOS, Linux, Android, iOS",
-  description: SITE_DESC,
-  url: SITE_URL,
-  image: `${SITE_URL}/logo.png`,
-  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-};
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={font.variable}>
       <body>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <VideoBackground />
         <DownloadProvider>
           <Navbar />
