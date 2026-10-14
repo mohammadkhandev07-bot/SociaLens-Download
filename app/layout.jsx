@@ -25,7 +25,6 @@ export const metadata = {
     images: [{ url: "/blog/hero.jpg", width: 1200, height: 750, alt: "SociaLens app" }],
   },
   twitter: { card: "summary_large_image", title: TITLE, description: SITE_DESC, images: ["/blog/hero.jpg"] },
-  manifest: "/manifest.json",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
